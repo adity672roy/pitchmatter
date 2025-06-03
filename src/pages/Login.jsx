@@ -3,8 +3,7 @@ import Input from "../components/Input";
 import Button from "../components/Button";
 import { FiEye, FiEyeOff } from "react-icons/fi";
 import RightLogo from "../assets/right_logo.png";
-import Logo from "../assets/logo.png";
-import bgImage from "../assets/login_bg.png";
+import LoginLeft from "../components/LoginLeft";
 
 const Login = () => {
   const [form, setForm] = useState({ email: "", password: "" });
@@ -21,26 +20,27 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen flex">
-      <div className="w-1/2 relative overflow-hidden">
-        <div className="absolute z-0 bg-gray-300">
-          <img src={bgImage} alt="" className="opacity-45 " />
-        </div>
-        <div className="relative z-10 flex items-center justify-center h-full">
-          <img src={Logo} alt="Logo" className="w-60 h-60 " />
-        </div>
-      </div>
+    <div className="min-h-screen h-screen flex flex-col lg:flex-row">
+      {/* Left */}
+      <LoginLeft />
 
       {/* Right */}
-      <div className="relative w-1/2 flex items-center justify-center ">
-        <form onSubmit={handleSubmit} className="w-full max-w-md">
-          <div className="mb-2">
-            <img src={RightLogo} alt="logo" className="w-80" />
+      <div className="w-full h-full lg:w-1/2 flex items-center justify-center px-6 py-6 lg:py-10 relative">
+        <form
+          onSubmit={handleSubmit}
+          className="w-full max-w-md bg-white bg-opacity-90 rounded-lg"
+        >
+          <div className="mb-4">
+            <img src={RightLogo} alt="logo" className=" w-80" />
           </div>
-          <p className="text-gray-600 mb-10 text-lg font-semibold">FundBoost Hub</p>
+          <p className="text-gray-600 mb-6 lg:mb-12  text-lg font-semibold">
+            FundBoost Hub
+          </p>
 
-          <h2 className="text-3xl font-semibold mb-1">Welcome back!</h2>
-          <p className=" text-gray-800 mb-10">
+          <h2 className="md:text-3xl text-2xl text-gray-700 font-semibold mb-1">
+            Welcome back!
+          </h2>
+          <p className="text-gray-600 mb-6 lg:mb-12 text-sm lg:text-base">
             Please enter your credentials to sign in!
           </p>
 
@@ -61,24 +61,23 @@ const Login = () => {
             placeholder="Enter your password"
             icon={
               showPassword ? (
-                <FiEyeOff size={16} onClick={togglePasswordVisibility} />
-              ) : (
                 <FiEye size={16} onClick={togglePasswordVisibility} />
+              ) : (
+                <FiEyeOff size={16} onClick={togglePasswordVisibility} />
               )
             }
           />
 
-          <div className="flex justify-between items-center mb-4">
-            <label className="flex items-center space-x-2 text-sm text-gray-600">
+          <div className="flex justify-between items-center mb-4 text-sm">
+            <label className="flex items-center space-x-1 text-gray-600">
               <input
                 type="checkbox"
                 checked={remember}
                 onChange={() => setRemember(!remember)}
-                className=""
               />
               <span>Remember me</span>
             </label>
-            <a href="#" className="text-sm text hover:underline">
+            <a href="#" className="text font-medium">
               Forgot password?
             </a>
           </div>
@@ -86,7 +85,7 @@ const Login = () => {
           <Button type="submit">Login</Button>
         </form>
 
-        <p className="absolute bottom-4 left-1/2 -translate-x-1/2 text-xs text-center text-zinc-500 font-semibold">
+        <p className="absolute bottom-2 text-center text-xs text-zinc-500 font-semibold w-full px-4">
           COPYRIGHT ©2025 Pitchmatter, All rights Reserved
         </p>
       </div>

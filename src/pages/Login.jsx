@@ -3,7 +3,7 @@ import Input from "../components/Input";
 import Button from "../components/Button";
 import { FiEye, FiEyeOff } from "react-icons/fi";
 import RightLogo from "../assets/right_logo.png";
-import LoginLeft from "../components/LoginLeft";
+import LoginLeft from "../components/LoginLeft"; 
 
 const Login = () => {
   const [form, setForm] = useState({ email: "", password: "" });
@@ -23,9 +23,10 @@ const Login = () => {
     <div className="min-h-screen h-screen flex flex-col lg:flex-row">
       {/* Left */}
       <LoginLeft />
+  
 
       {/* Right */}
-      <div className="w-full h-full lg:w-1/2 flex items-center justify-center px-6 py-6 lg:py-10 relative">
+      <div className="w-full h-full lg:w-1/2 flex items-center justify-center  py-6 lg:py-10 relative">
         <form
           onSubmit={handleSubmit}
           className="w-full max-w-md bg-white bg-opacity-90 rounded-lg"
